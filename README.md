@@ -1,4 +1,4 @@
-# Python Gender detector
+# Python Gender detector for CSV files
 
 - Uses library: <https://pypi.org/project/gender-guesser/>
 - Detects the gender based on the First name (given name)
