@@ -17,13 +17,13 @@ name_type = input(
     ).strip().lower()
 
 if name_type == 'full':
-    direction = input(
+    is_lastname_first = input(
         "Are the names in 'LastName FirstName' ('Vezetéknév Keresztnév') order? (yes/no): "
     ).strip().lower()
 
-    if direction == 'yes':
+    if is_lastname_first == 'yes':
         data_frame['First Name'] = name_column.str.split().str.get(-1)
-    elif direction == 'no':
+    elif is_lastname_first == 'no':
         data_frame['First Name'] = name_column.str.split().str.get(0)
     else:
         raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
