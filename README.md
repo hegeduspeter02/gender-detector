@@ -27,3 +27,7 @@
 5. answer the questions prompted
 6. the result is stored in ```names_with_genders.csv``` in the same folder
 7. correct the genders manually for the names that didn't match
+
+### Get more out of it
+
+- You can update the ```external_names_dict.py``` dictionary file to add more name-gender pairs.
