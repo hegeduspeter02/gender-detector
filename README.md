@@ -1,7 +1,7 @@
 # Python Gender detector
 
 - Uses library: <https://pypi.org/project/gender-guesser/>
-- Detects the gender based on First name (given name)
+- Detects the gender based on the First name (given name)
 - Can be used with **Full names** or with just **First Names**
 
 ## Usage
