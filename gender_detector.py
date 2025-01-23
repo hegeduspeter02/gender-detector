@@ -1,5 +1,6 @@
 import gender_guesser.detector as gender
 import pandas as pd
+import external_names_dict
 
 def shorten_gender(gender):
     if gender == 'male':
@@ -35,6 +36,16 @@ else:
     raise ValueError("Invalid input. Please enter 'full' or 'first'.")
 
 detector = gender.Detector(case_sensitive=False)
+
+for letter, entries in external_names_dict.names_dict.items():
+    if not entries:
+        continue
+    
+    for entry in entries:
+        if len(entry) == 2:
+            name, gender = entry
+            name = name.lower()
+            detector._set(name, 'female' if gender == 'f' else 'male', '1')
 
 data_frame['Gender'] = data_frame['First Name'].apply(detector.get_gender)
 data_frame['Gender'] = data_frame['Gender'].apply(shorten_gender)
