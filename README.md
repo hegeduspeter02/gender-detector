@@ -4,7 +4,7 @@
 - Detects the gender based on the First name (given name)
 - Can be used with **Full names** or with just **First Names**
 - Extended with Hungarian names (accepted from 2025-01-01)
-  - Hungarian names are preferred if the PREFER_HUNGARIAN_NAMES const is set to **True**
+  - Hungarian names are preferred if the ```PREFER_HUNGARIAN_NAMES``` const is set to ```True```
 
 ## Usage
 
