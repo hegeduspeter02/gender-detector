@@ -62,7 +62,15 @@ add_external_names_to_detector(detector, external_hungarian_names_female, 'femal
 add_external_names_to_detector(detector, external_hungarian_names_male, 'male', 'hungary')
 
 if(PREFER_HUNGARIAN_NAMES):
-    data_frame['Gender'] = data_frame['First Name'].apply(lambda name: detector.get_gender(name, 'hungary'))
+    def get_gender_with_fallback(first_name):
+        first_name_parts = first_name.split()
+        for first_name_part in first_name_parts:
+            gender = detector.get_gender(first_name_part, 'hungary')
+            if gender in ['male', 'female']:
+                return gender
+        return 'unknown'
+
+    data_frame['Gender'] = data_frame['First Name'].apply(get_gender_with_fallback)
 else:
     data_frame['Gender'] = data_frame['First Name'].apply(detector.get_gender)
 
